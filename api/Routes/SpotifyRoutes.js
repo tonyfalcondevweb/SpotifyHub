@@ -24,6 +24,7 @@ router.post("/logout", (req, res) => {
 router.get("/callback", callback, (req, res) => {
   res.cookie("spotifyAccessToken", req.accessToken, {
     httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
     maxAge: 3600 * 1000,
   });
 
