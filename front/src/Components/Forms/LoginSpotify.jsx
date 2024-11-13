@@ -3,8 +3,7 @@ import Container from "../Commons/Container";
 import { flexCenterFull } from "../../Utils/Const";
 
 const LoginSpotify = () => {
-
-  const apiUrlLogin = import.meta.env.VITE_BACKEND_URL_LOGIN
+  const apiUrlLogin = import.meta.env.VITE_BACKEND_URL_LOGIN;
 
   return (
     <Container className={flexCenterFull}>

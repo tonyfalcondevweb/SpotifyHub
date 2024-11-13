@@ -1,5 +1,5 @@
 // Recommendation.js
-import React from 'react';
+import React from "react";
 
 const Recommendation = ({ recommendations }) => {
   return (
@@ -24,7 +24,7 @@ const Recommendation = ({ recommendations }) => {
             <div className="flex-1">
               <p className="text-gray-200 font-medium">{rec.name}</p>
               <p className="text-gray-400 text-sm">
-                {rec.artists.map((artist) => artist.name).join(', ')}
+                {rec.artists.map((artist) => artist.name).join(", ")}
               </p>
             </div>
             <span className="text-green-500 font-semibold">Écouter</span>

@@ -2,10 +2,7 @@ import React from "react";
 
 const TopSong = ({ topSongs }) => {
   const handleLink = (url) => {
-    
-
     window.open(url.spotify, "_blank");
-    
   };
 
   return (
@@ -26,7 +23,11 @@ const TopSong = ({ topSongs }) => {
           </thead>
           <tbody className="divide-y divide-slate-600">
             {topSongs.slice(0, 10).map((song, index) => (
-              <tr key={song.id} onClick={() => handleLink(song.external_urls)} className="hover:bg-slate-600 hover:cursor-pointer">
+              <tr
+                key={song.id}
+                onClick={() => handleLink(song.external_urls)}
+                className="hover:bg-slate-600 hover:cursor-pointer"
+              >
                 <td className="p-3 text-gray-400 text-lg font-semibold">
                   {index + 1}
                 </td>

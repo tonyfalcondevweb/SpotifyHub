@@ -5,14 +5,12 @@ import { getTopSongs, logout } from "../Api/Api";
 import TopSong from "./TopSong";
 import Recommendation from "./Recommendation";
 import Button from "./Commons/Button";
-import { useNavigate } from "react-router-dom";
 
 const Result = () => {
   const [loading, setLoading] = useState(true);
   const [topSongs, setTopSongs] = useState([]);
   const [recommendations, setRecommendations] = useState([]);
   const [dataFetched, setDataFetched] = useState(false);
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (!dataFetched) {
@@ -52,9 +50,7 @@ const Result = () => {
       .catch((error) => {
         console.error("Erreur :", error);
       })
-      .finally(() => {
-
-      });
+      .finally(() => {});
   };
 
   if (loading) return <Loading />;
