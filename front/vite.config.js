@@ -8,14 +8,14 @@ export default defineConfig({
   server: {
     proxy: {
       "/verify-token": {
-        target: "http://localhost:5000/spotify",
+        target: import.meta.env.VITE_API_URL,
 
       },
       "/top-tracks": {
-        target: "http://localhost:5000/spotify",
+        target: import.meta.env.VITE_API_URL,
       },
       "/logout": {
-        target: "http://localhost:5000/spotify",
+        target: import.meta.env.VITE_API_URL,
       },
     },    
   },
