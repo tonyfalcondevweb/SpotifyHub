@@ -1,22 +1,28 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-// https://vitejs.dev/config/
+// Accéder aux variables d'environnement via process.env
+const backendUrl = process.env.VITE_API_URL || 'http://localhost:5000';
+
 export default defineConfig({
   plugins: [react()],
-
   server: {
     proxy: {
       "/verify-token": {
-        target: import.meta.env.VITE_API_URL,
-
+        target: backendUrl,
+        changeOrigin: true,
+        secure: false,
       },
       "/top-tracks": {
-        target: import.meta.env.VITE_API_URL,
+        target: backendUrl,
+        changeOrigin: true,
+        secure: false,
       },
       "/logout": {
-        target: import.meta.env.VITE_API_URL,
+        target: backendUrl,
+        changeOrigin: true,
+        secure: false,
       },
-    },    
+    },
   },
 });
