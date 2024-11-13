@@ -1,12 +1,14 @@
 import express from "express";
 import spotifyRoutes from "./Routes/SpotifyRoutes.js";
-
+import cookieParser from 'cookie-parser';
 
 const app = express();
 const PORT = 5000;
 
-// Middleware JSON
+
 app.use(express.json());
+app.use(cookieParser());
+
 
 // Route principale
 app.get("/", (req, res) => {
@@ -25,8 +27,9 @@ app.use((err, req, res, next) => {
   res.status(500).send('Une erreur est survenue !');
 });
 
-app.listen(PORT, () => {
-  console.log(`Serveur en cours d'exécution sur http://localhost:${PORT}`);
-});
-
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(PORT, () => {
+    console.log(`Serveur en cours d'exécution sur http://localhost:${PORT}`);
+  });
+}
 export default app;
