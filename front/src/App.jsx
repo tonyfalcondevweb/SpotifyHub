@@ -11,9 +11,9 @@ function App() {
     <SpotifyProvider>
       <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <Routes>
-
+          <Route element={<SpotifyAccessRoutes />}>
             <Route path="/top10" element={<Result />} />
-
+          </Route>
 
           <Route element={<PublicRoutes />}>
             <Route path="/" element={<LoginSpotify />} />
