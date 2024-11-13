@@ -1,7 +1,9 @@
-import spotifyRoutes from "./Routes/SpotifyRoutes.js";
 import express from "express";
+import spotifyRoutes from "./Routes/SpotifyRoutes.js";
+
 
 const app = express();
+const PORT = 5000;
 
 // Middleware JSON
 app.use(express.json());
@@ -16,5 +18,15 @@ app.get("/home", (req, res) => {
 });
 
 app.use("/spotify", spotifyRoutes);
+
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Une erreur est survenue !');
+});
+
+app.listen(PORT, () => {
+  console.log(`Serveur en cours d'exécution sur http://localhost:${PORT}`);
+});
 
 export default app;
